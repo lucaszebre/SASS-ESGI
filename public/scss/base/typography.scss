@@ -1,0 +1,68 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+
+//TITRES - BEM : .heading
+.heading {
+    font-family: $font-family-heading;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $colors-text;
+    margin-bottom: $spacing-4;
+
+    @include dark { color: $colors-text-dark; }
+
+
+    &--h1 {font-size: $font-size-3xl; @include respond-to(md) {font-size: $font-size-5xl; } }
+    &--h2 {font-size: $font-size-2xl; @include responde-to(md) {font-size: $font-size-4xl; } }
+    &--h3 {font-size: $font-size-xl; @include responde-to(md) {font-size: $font-size-3xl; } }
+    &--h4 {font-size: $font-size-lg; @include responde-to(md) {font-size: $font-size-2xl; } }
+    &--h5 {font-size: $font-size-md; @include responde-to(md) {font-size: $font-size-xl; } }
+    &--h6 {font-size: $font-size-sm; @include responde-to(md) {font-size: $font-size-lg; } }
+
+
+//Modificateurs
+&--light {font-weight: $font-weight-light;}
+&--muted {color: $colors-text-muted;}
+&--center {text-align:center;}
+&--uppercase {text-transform: uppercase; letter-spacing: 0.05em;}
+}
+
+
+//TEXTE COURANT _BEM .text
+.text {
+    font-family: $font-family-base;
+    font-size: $font-family-base;
+    line-height: $line-height-base;
+    color: $colors-text;
+
+    @include dark { color: $colors-text-dark; }
+
+    &--sm {font-size: $font-size-sm;}
+    &--lg {font-size: $font-size-lg;}
+    &--muted {color:$colors-text-muted;}
+    &--italic {font-style: italic;}
+    &--centre {text-align: center;}
+    &--lead {
+        font-size: $font-size-lg;
+        line-height: $line-height-loose;
+        color: $colors-text-muted;
+    }
+}
+
+
+//LIENS - BEM : .link
+.link {
+    color: $colors-primary;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color $transition-fast;
+    cursor: pointer;
+
+    &:hover { color: $colors-primary-dark;}
+
+    @include dark {
+        color: lighten($colors-primary, 20%);
+        &:hover {}
+    }
+}

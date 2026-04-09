@@ -1,0 +1,172 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+
+//GROUPE FORMULAIRE - BEM : .form
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    width: 100%;
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2;
+    }
+
+    &__label {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semiblod;
+        color: $colors-text;
+        @include dark {color: $colors-text-dark;}
+    }
+
+    &__hint {
+        font-size: $font-size-xs;
+        color: $colors-text-muted;
+    }
+
+
+    &__error {
+        font-size: $font-size-xs;
+        color: $color-error;
+    }
+}
+
+
+//INPUT - BEM : .input
+.input {
+    @include input-base;
+
+
+    @include dark {
+        background-color: $colors-surface-dark;
+        border-color: $colors-border-dark;
+        color: $colors-text-dark;
+    }
+
+
+    &--error {
+        border-color: $color-error;
+        &:focus { box-shadow: 0 0 0 3px rgba($color-error, 0.15); }
+    }
+
+    &--success {
+        border-color: $color-success;
+    }
+
+
+    &--sm { padding: $spacing-2 $spacing-3; font-size: $font-size-sm; }
+    &-- { padding: $spacing-4 $spacing-5; font-size: $font-size-lg; }
+}
+
+
+//TEXTAREA
+.textarea {
+    @include input-base;
+    resize: vertical;
+    min-height: 120px;
+
+    @include dark {
+        background-color: $colors-surface-dark;
+        border-color: $colors-border-dark;
+        color: $colors-text-dark;
+    }
+}
+
+
+//SELECT - BEM : .select
+.select {
+    @include inline-base;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right $spacing-4 center;
+    padding-right: $spacing-10;
+    cursor: pointer;
+
+    @include dark {
+        background-color: $colors-surface-dark;
+        border-color: $colors-border-dark;
+        color: $colors-text-dark;
+    }
+}
+
+
+// CHECKBOX & RADIO - BEM : .checkbox / .radio
+.checkbox,
+.radio {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    cursor: pointer;
+
+    &__input {
+        width: 18px;
+        height: 18px;
+        accent-color: $colors-primary;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    &__label {
+        font-size: $font-size-sm;
+        color: $colors-text;
+        @include dark { color-text-dark; }
+    }
+
+
+    .radio__input {
+        border-radius: $border-radius-full;
+    }
+
+
+    //BOUTONS - BEM : .btn
+    .btn {
+        @include button-base;
+
+
+        //Variantes
+        &--primary {
+            background-color: $colors-primary;
+            color: #fff;
+            &:hover:not(:disabled) {background-color: $colors-primary-dark; }
+        }
+
+        &--secondary {
+            background-color: transparent;
+            border-color: $colors-primary;
+            color: $colors-primary;
+            &:hover:not(:disabled) {
+                background-color: $colors-primary;
+                color: #fff;
+            }
+        }
+
+        &--ghost {
+            background-color: transparent;
+            color: $colors-text;
+            &:hover:not(:disabled) { background-color: $colors-surface; }
+            @include dark { color: $colors-text-dark; }
+        }
+
+
+        &--danger {
+            background-color: rgba($color-error;
+            color: #fff;
+            &:hover:not(:disabled) {background-color: darken($color:-error, 10%);}
+        }
+
+
+        //Tailles
+        &--sm { padding: $spacing-2 $spacing-4; font-size: $font-size-sm; }
+        &--lg { padding: $spacing-4 $spacing-8; font-size: $font-size-lg;}
+        &--full {width: 100%; }
+
+
+        //Dark mode
+        @include dark {
+            &--ghost:hover:not(:disabled) {background-color: $colors-surface-dark; }
+        }
+    }
+}
