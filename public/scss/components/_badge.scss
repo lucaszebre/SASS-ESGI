@@ -1,0 +1,50 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-1 $spacing-3;
+    border-radius: $border-radius-sm;
+    line-height: 1;
+
+    &--primary {
+        background-color: $colors-primary-100;
+        color: $colors-primary-700;
+        @include dark { background-color: $colors-primary-900; color: $colors-primary-300; }
+    }
+
+    &--secondary {
+        background-color: $colors-neutral-100;
+        color: $colors-neutral-700;
+        @include dark { background-color: $colors-neutral-800; color: $colors-neutral-300; }
+    }
+
+    &--success {
+        background-color: #dcfce7;
+        color: #166534;
+        @include dark { background-color: #14532d; color: #86efac; }
+    }
+
+    &--warning {
+        background-color: #fef3c7;
+        color: #92400e;
+        @include dark { background-color: #78350f; color: #fcd34d; }
+    }
+
+    &--danger {
+        background-color: #fee2e2;
+        color: #991b1b;
+        @include dark { background-color: #7f1d1d; color: #fca5a5; }
+    }
+
+    &--info {
+        background-color: #dbeafe;
+        color: #1e40af;
+        @include dark { background-color: #1e3a5f; color: #93c5fd; }
+    }
+
+    &--pill { border-radius: $border-radius-full; }
+}

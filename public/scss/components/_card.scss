@@ -1,0 +1,73 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+.card {
+    background-color: $colors-bg;
+    border: 1px solid $colors-border;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    transition: box-shadow $transition-base;
+
+    @include dark {
+        background-color: $colors-surface-dark;
+        border-color: $colors-border-dark;
+    }
+
+    &:hover { box-shadow: $shadow-md; }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__body {
+        padding: $spacing-4;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2;
+    }
+
+    &__title {
+        font-family: $font-family-heading;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $colors-text;
+        @include dark { color: $colors-text-dark; }
+    }
+
+    &__text {
+        font-size: $font-size-sm;
+        color: $colors-text-muted;
+    }
+
+    &__footer {
+        padding: $spacing-4;
+        border-top: 1px solid $colors-border;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include dark { border-color: $colors-border-dark; }
+    }
+
+    &--horizontal {
+        display: flex;
+        flex-direction: row;
+
+        .card__image {
+            width: 200px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            .card__image { width: 100%; }
+        }
+    }
+
+    &--featured {
+        border-color: $colors-primary-200;
+        @include dark { border-color: $colors-primary-700; }
+    }
+}

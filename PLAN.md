@@ -63,7 +63,7 @@ CMS orienté **Blog / Magazine** : articles, catégories, auteurs, commentaires,
 
 ---
 
-## Phase 3 — Layout (`layout/` — nouveau dossier)
+## Phase 3 — Layout (`layout/`) ✅
 
 ### 3.1 `_container.scss`
 - `.container` : max-width, padding auto, responsive
@@ -239,13 +239,13 @@ public/scss/
 |---|---|---|---|
 | 1 | Fondations | `variables`, `functions`, `mixins` | ✅ |
 | 2 | Base | `reset`, `typography` (fix) | ✅ |
-| 3 | Layout | `container`, `grid`, `section` | |
-| 4 | Composants base | `buttons`, `forms` (fix), `card`, `badge` | |
+| 3 | Layout | `container`, `grid`, `section` | ✅ |
+| 4 | Composants base | `buttons`, `forms` (fix), `card`, `badge` | ✅ |
 | 5 | Feedback UI | `alert`, `banner` | |
 | 6 | Navigation | `navbar`, `breadcrumb`, `pagination`, `accordion` | |
 | 7 | Avancé | `modal`, `table`, `sidebar`, `article`, `comment` | |
 | 8 | Thème warm | `_theme-warm.scss` | |
 | 9 | JS | `modal.js`, `accordion.js`, `navbar.js`, `alert.js` | |
-| 10 | main.scss | Imports + compilation | |
+| 10 | main.scss | Imports + compilation | ✅ (phase 1-3) |
 | 11 | Démos HTML | 4 pages de démo | ✅ |
 | 12 | Tooling | `package.json` | ✅ |

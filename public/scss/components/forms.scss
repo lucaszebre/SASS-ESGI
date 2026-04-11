@@ -58,7 +58,7 @@
 
 
     &--sm { padding: $spacing-2 $spacing-3; font-size: $font-size-sm; }
-    &-- { padding: $spacing-4 $spacing-5; font-size: $font-size-lg; }
+    &--lg { padding: $spacing-4 $spacing-5; font-size: $font-size-lg; }
 }
 
 
@@ -118,55 +118,5 @@
 
     .radio__input {
         border-radius: $border-radius-full;
-    }
-
-
-    //BOUTONS - BEM : .btn
-    .btn {
-        @include button-base;
-
-
-        //Variantes
-        &--primary {
-            background-color: $colors-primary;
-            color: #fff;
-            &:hover:not(:disabled) {background-color: $colors-primary-dark; }
-        }
-
-        &--secondary {
-            background-color: transparent;
-            border-color: $colors-primary;
-            color: $colors-primary;
-            &:hover:not(:disabled) {
-                background-color: $colors-primary;
-                color: #fff;
-            }
-        }
-
-        &--ghost {
-            background-color: transparent;
-            color: $colors-text;
-            &:hover:not(:disabled) { background-color: $colors-surface; }
-            @include dark { color: $colors-text-dark; }
-        }
-
-
-        &--danger {
-            background-color: $color-error;
-            color: #fff;
-            &:hover:not(:disabled) {background-color: $color-error-dark;}
-        }
-
-
-        //Tailles
-        &--sm { padding: $spacing-2 $spacing-4; font-size: $font-size-sm; }
-        &--lg { padding: $spacing-4 $spacing-8; font-size: $font-size-lg;}
-        &--full {width: 100%; }
-
-
-        //Dark mode
-        @include dark {
-            &--ghost:hover:not(:disabled) {background-color: $colors-surface-dark; }
-        }
     }
 }
