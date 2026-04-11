@@ -1,47 +1,42 @@
 <?php
-$error = $error ?? '';
-$success = $success ?? '';
+$pageTitle = 'Connexion';
+include __DIR__ . '/layouts/header.php';
 ?>
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
+<section class="section">
+    <div class="container container--narrow">
+        <h1 class="heading heading--h2">Connexion</h1>
+        <p class="text text--muted">Connectez-vous pour accéder à votre compte.</p>
 
-<body>
-    <h1>Login</h1>
-    <p>Please sign in to continue.</p>
+        <?php if ($error !== ''): ?>
+            <div class="alert alert--danger" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
 
-    <?php if ($error !== ''): ?>
-        <p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+        <?php if ($success !== ''): ?>
+            <div class="alert alert--success" role="alert"><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
 
-    <?php if ($success !== ''): ?>
-        <p><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+        <form class="form" method="post" action="/login" autocomplete="on">
+            <?= \App\Services\CsrfService::field() ?>
 
-    <form method="post" action="/login" autocomplete="on">
-        <?= \App\Services\CsrfService::field() ?>
-        <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            <div class="form__group">
+                <label class="form__label" for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" placeholder="vous@example.com" required>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="password">Mot de passe</label>
+                <input class="input" id="password" name="password" type="password" placeholder="Votre mot de passe" required>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="submit">Se connecter</button>
+        </form>
+
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+            <a href="/register" class="link">Créer un compte</a>
+            <a href="/forgot-password" class="link text--muted">Mot de passe oublié ?</a>
         </div>
+    </div>
+</section>
 
-        <div>
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Your password" required>
-        </div>
-
-        <div>
-            <button type="submit">Log in</button>
-        </div>
-    </form>
-    <a href="/register">Go to register page</a> |
-    <a href="/forgot-password">Forgot password?</a>
-
-</body>
-
-</html>
+<?php include __DIR__ . '/layouts/footer.php'; ?>

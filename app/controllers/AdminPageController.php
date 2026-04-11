@@ -33,6 +33,7 @@ class AdminPageController extends Controller
             'pages' => $this->page->getAllPages(),
             'error' => $this->errorMessage(trim($request->query('error'))),
             'isAdmin' => $this->authSession->isAdmin(),
+            'username' => $this->authSession->username(),
         ]);
     }
 
@@ -41,6 +42,8 @@ class AdminPageController extends Controller
         $this->render('admin/pages/create', [
             'error' => $this->errorMessage(trim($request->query('error'))),
             'statuses' => Page::STATUSES,
+            'isAdmin' => $this->authSession->isAdmin(),
+            'username' => $this->authSession->username(),
         ]);
     }
 
@@ -88,6 +91,8 @@ class AdminPageController extends Controller
             'page' => $page,
             'error' => $this->errorMessage(trim($request->query('error'))),
             'statuses' => Page::STATUSES,
+            'isAdmin' => $this->authSession->isAdmin(),
+            'username' => $this->authSession->username(),
         ]);
     }
 

@@ -1,57 +1,51 @@
 <?php
-$error = $error ?? '';
-$success = $success ?? '';
+$pageTitle = 'Inscription';
+include __DIR__ . '/layouts/header.php';
 ?>
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
+<section class="section">
+    <div class="container container--narrow">
+        <h1 class="heading heading--h2">Inscription</h1>
+        <p class="text text--muted">Créez votre compte pour rejoindre la communauté.</p>
 
-<body>
-    <h1>Register</h1>
-    <p>Create a new account.</p>
+        <?php if ($error !== ''): ?>
+            <div class="alert alert--danger" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
 
-    <?php if ($error !== ''): ?>
-        <p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+        <?php if ($success !== ''): ?>
+            <div class="alert alert--success" role="alert"><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
 
-    <?php if ($success !== ''): ?>
-        <p><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+        <form class="form" method="post" action="/register" autocomplete="on">
+            <?= \App\Services\CsrfService::field() ?>
 
-    <form method="post" action="/register" autocomplete="on">
-        <?= \App\Services\CsrfService::field() ?>
-        <div>
-            <label for="username">Username</label>
-            <input id="username" name="username" type="text" placeholder="Your username" required>
+            <div class="form__group">
+                <label class="form__label" for="username">Nom d'utilisateur</label>
+                <input class="input" id="username" name="username" type="text" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" placeholder="vous@example.com" required>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="password">Mot de passe</label>
+                <input class="input" id="password" name="password" type="password" placeholder="Votre mot de passe" required>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="password_confirm">Confirmer le mot de passe</label>
+                <input class="input" id="password_confirm" name="password_confirm" type="password" placeholder="Répétez le mot de passe" required>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="submit">S'inscrire</button>
+        </form>
+
+        <div style="margin-top:1.5rem;">
+            <a href="/login" class="link">Déjà un compte ? Se connecter</a>
         </div>
+    </div>
+</section>
 
-        <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-        </div>
-
-
-        <div>
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Your password" required>
-        </div>
-
-        <div>
-            <label for="password_confirm">Confirm password</label>
-            <input id="password_confirm" name="password_confirm" type="password" placeholder="Repeat your password" required>
-        </div>
-
-        <div>
-            <button type="submit">Register</button>
-        </div>
-    </form>
-    <a href="/login">Go to Login Page</a>
-
-</body>
-
-</html>
+<?php include __DIR__ . '/layouts/footer.php'; ?>

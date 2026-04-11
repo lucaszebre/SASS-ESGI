@@ -23,4 +23,12 @@ class SiteController extends Controller
             'role'     => $this->authSession->role(),
         ]);
     }
+
+    public function designGuide(Request $request): void
+    {
+        $this->render('design-guide', [
+            'username' => $this->authSession->username(),
+            'role'     => $this->authSession->role(),
+        ]);
+    }
 }

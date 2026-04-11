@@ -32,6 +32,8 @@ class AdminUserController extends Controller
         $this->render('admin/users/index', [
             'users' => $this->user->getAllUsers(),
             'error' => $this->errorMessage(trim($request->query('error'))),
+            'isAdmin' => true,
+            'username' => $this->authSession->username(),
         ]);
     }
 
@@ -40,6 +42,8 @@ class AdminUserController extends Controller
         $this->render('admin/users/create', [
             'error' => $this->errorMessage(trim($request->query('error'))),
             'roles' => User::ROLES,
+            'isAdmin' => true,
+            'username' => $this->authSession->username(),
         ]);
     }
 
@@ -104,6 +108,8 @@ class AdminUserController extends Controller
             'user' => $user,
             'error' => $this->errorMessage(trim($request->query('error'))),
             'roles' => User::ROLES,
+            'isAdmin' => true,
+            'username' => $this->authSession->username(),
         ]);
     }
 

@@ -1,25 +1,24 @@
 <?php
-$error = $error ?? '';
-$success = $success ?? '';
+$pageTitle = 'Activation';
+include __DIR__ . '/layouts/header.php';
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Activated</title>
-</head>
-<body>
-    <h1>Account Activation</h1>
 
-    <?php if ($error !== ''): ?>
-        <p style="color:red"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+<section class="section">
+    <div class="container container--narrow" style="text-align:center;">
+        <h1 class="heading heading--h2">Activation du compte</h1>
 
-    <?php if ($success !== ''): ?>
-        <p style="color:green"><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></p>
-    <?php endif; ?>
+        <?php if ($error !== ''): ?>
+            <div class="alert alert--danger" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
 
-    <p><a href="/login">Go to login</a></p>
-</body>
-</html>
+        <?php if ($success !== ''): ?>
+            <div class="alert alert--success" role="alert"><?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?></div>
+        <?php endif; ?>
+
+        <div style="margin-top:1.5rem;">
+            <a href="/login" class="btn btn--primary">Aller à la connexion</a>
+        </div>
+    </div>
+</section>
+
+<?php include __DIR__ . '/layouts/footer.php'; ?>

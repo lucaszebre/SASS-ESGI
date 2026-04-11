@@ -10,6 +10,7 @@ use App\Core\Router;
 function registerWebRoutes(Router $router): void
 {
     $router->get('/', [SiteController::class, 'home']);
+    $router->get('/design-guide', [SiteController::class, 'designGuide']);
 
     $router->get('/login', [AuthController::class, 'showLogin']);
     $router->post('/login', [AuthController::class, 'login']);
