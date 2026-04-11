@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin — Magazine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .dashboard { display: flex; min-height: 100vh; }
+        .dashboard__main { flex: 1; padding: 2rem; }
+        .dashboard__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+        .dashboard__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; }
+        .stat-card__value { font-size: 2rem; font-weight: 700; }
+        .stat-card__label { font-size: 0.875rem; opacity: 0.6; }
+        .stat-card__trend { font-size: 0.75rem; margin-top: 0.5rem; }
+        .stat-card__trend--up { color: #22c55e; }
+        .stat-card__trend--down { color: #ef4444; }
+        .mobile-sidebar-toggle { display: none; }
+        @media (max-width: 768px) {
+            .dashboard { flex-direction: column; }
+            .sidebar { display: none; }
+            .sidebar--open { display: block; }
+            .mobile-sidebar-toggle { display: inline-flex; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- ======================================== -->
+    <!-- SIDEBAR                                  -->
+    <!-- ======================================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <span class="sidebar__brand">Magazine Admin</span>
+        </div>
+        <nav class="sidebar__nav">
+            <a href="#" class="sidebar__link sidebar__link--active">Dashboard</a>
+            <a href="#" class="sidebar__link">Articles</a>
+            <a href="#" class="sidebar__link">Catégories</a>
+            <a href="#" class="sidebar__link">Commentaires</a>
+            <a href="#" class="sidebar__link">Utilisateurs</a>
+            <a href="#" class="sidebar__link">Médias</a>
+            <a href="#" class="sidebar__link">Paramètres</a>
+        </nav>
+        <div class="sidebar__footer" style="padding:1rem;border-top:1px solid var(--color-border);">
+            <a href="../demos/front-page.html" class="sidebar__link">← Retour au site</a>
+        </div>
+    </aside>
+
+    <!-- ======================================== -->
+    <!-- MAIN CONTENT                             -->
+    <!-- ======================================== -->
+    <div class="dashboard__main">
+
+        <!-- Header -->
+        <div class="dashboard__header">
+            <div>
+                <button class="btn btn--ghost btn--sm mobile-sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('sidebar--open')">☰ Menu</button>
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item"><a href="#" class="breadcrumb__link">Admin</a></li>
+                        <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+                <h1 class="heading heading--h2">Dashboard</h1>
+            </div>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+                <button class="btn btn--primary btn--sm">+ Nouvel article</button>
+                <img src="https://placehold.co/36x36/6366f1/ffffff?text=MD" alt="Avatar" style="width:36px;height:36px;border-radius:50%;">
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert alert--info" role="alert" style="margin-bottom:1.5rem;">
+            <strong>Bienvenue !</strong> Vous avez 3 commentaires en attente de modération.
+            <button class="alert__close" aria-label="Fermer">×</button>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- STATS CARDS                              -->
+        <!-- ======================================== -->
+        <div class="dashboard__stats">
+            <div class="stat-card">
+                <p class="stat-card__label">Articles publiés</p>
+                <p class="stat-card__value">42</p>
+                <p class="stat-card__trend stat-card__trend--up">↑ +12% ce mois</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-card__label">Commentaires</p>
+                <p class="stat-card__value">128</p>
+                <p class="stat-card__trend stat-card__trend--up">↑ +8% ce mois</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-card__label">Visiteurs ce mois</p>
+                <p class="stat-card__value">3.2k</p>
+                <p class="stat-card__trend stat-card__trend--down">↓ -3% ce mois</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-card__label">Brouillons</p>
+                <p class="stat-card__value">5</p>
+                <p class="stat-card__trend">En attente</p>
+            </div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- ARTICLES TABLE                           -->
+        <!-- ======================================== -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+            <h2 class="heading heading--h4">Articles récents</h2>
+            <div style="display:flex;gap:0.5rem;">
+                <input class="input" type="search" placeholder="Rechercher..." style="width:200px;">
+                <select class="select" style="width:auto;">
+                    <option value="">Tous les statuts</option>
+                    <option value="published">Publié</option>
+                    <option value="draft">Brouillon</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table table--responsive">
+            <table class="table table--striped">
+                <thead class="table__head">
+                    <tr>
+                        <th class="table__cell table__cell--header"><input class="checkbox__input" type="checkbox"></th>
+                        <th class="table__cell table__cell--header">Titre</th>
+                        <th class="table__cell table__cell--header">Auteur</th>
+                        <th class="table__cell table__cell--header">Catégorie</th>
+                        <th class="table__cell table__cell--header">Statut</th>
+                        <th class="table__cell table__cell--header">Date</th>
+                        <th class="table__cell table__cell--header">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table__row">
+                        <td class="table__cell"><input class="checkbox__input" type="checkbox"></td>
+                        <td class="table__cell"><a href="#" class="link">L'IA générative transforme le développement web</a></td>
+                        <td class="table__cell">Marie Dupont</td>
+                        <td class="table__cell"><span class="badge badge--primary badge--pill">Tech</span></td>
+                        <td class="table__cell"><span class="badge badge--success">Publié</span></td>
+                        <td class="table__cell text--sm">12 Jan 2026</td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm" onclick="document.getElementById('modal-delete').style.display='flex'">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell"><input class="checkbox__input" type="checkbox"></td>
+                        <td class="table__cell"><a href="#" class="link">Design tokens : le futur des design systems</a></td>
+                        <td class="table__cell">Lucas Zebre</td>
+                        <td class="table__cell"><span class="badge badge--secondary badge--pill">Design</span></td>
+                        <td class="table__cell"><span class="badge badge--warning">Brouillon</span></td>
+                        <td class="table__cell text--sm">10 Jan 2026</td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm" onclick="document.getElementById('modal-delete').style.display='flex'">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell"><input class="checkbox__input" type="checkbox"></td>
+                        <td class="table__cell"><a href="#" class="link">SCSS avancé : mixins et fonctions</a></td>
+                        <td class="table__cell">Paul Martin</td>
+                        <td class="table__cell"><span class="badge badge--info badge--pill">Dev</span></td>
+                        <td class="table__cell"><span class="badge badge--success">Publié</span></td>
+                        <td class="table__cell text--sm">8 Jan 2026</td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm" onclick="document.getElementById('modal-delete').style.display='flex'">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell"><input class="checkbox__input" type="checkbox"></td>
+                        <td class="table__cell"><a href="#" class="link">CSS Container Queries en pratique</a></td>
+                        <td class="table__cell">Sophie Bernard</td>
+                        <td class="table__cell"><span class="badge badge--danger badge--pill">CSS</span></td>
+                        <td class="table__cell"><span class="badge badge--success">Publié</span></td>
+                        <td class="table__cell text--sm">6 Jan 2026</td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm" onclick="document.getElementById('modal-delete').style.display='flex'">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell"><input class="checkbox__input" type="checkbox"></td>
+                        <td class="table__cell"><a href="#" class="link">Optimiser les Core Web Vitals</a></td>
+                        <td class="table__cell">Marie Dupont</td>
+                        <td class="table__cell"><span class="badge badge--primary badge--pill">Perf</span></td>
+                        <td class="table__cell"><span class="badge badge--warning">Brouillon</span></td>
+                        <td class="table__cell text--sm">4 Jan 2026</td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm" onclick="document.getElementById('modal-delete').style.display='flex'">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:0.5rem;">
+            <span class="text text--sm text--muted">Affichage de 1 à 5 sur 42 articles</span>
+            <nav class="pagination" aria-label="Pagination">
+                <a href="#" class="pagination__link pagination__link--disabled">← Précédent</a>
+                <a href="#" class="pagination__link pagination__link--active">1</a>
+                <a href="#" class="pagination__link">2</a>
+                <a href="#" class="pagination__link">3</a>
+                <a href="#" class="pagination__link">Suivant →</a>
+            </nav>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- ACCORDION: Quick settings                -->
+        <!-- ======================================== -->
+        <div style="margin-top:2rem;">
+            <h2 class="heading heading--h4">Paramètres rapides</h2>
+            <div class="accordion" style="max-width:100%;">
+                <div class="accordion__item accordion__item--open">
+                    <button class="accordion__header">
+                        <span>Notifications par email</span>
+                        <span class="accordion__icon">▼</span>
+                    </button>
+                    <div class="accordion__body">
+                        <form class="form">
+                            <div class="form__group">
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox" checked>
+                                    <span class="checkbox__label">Nouveau commentaire</span>
+                                </label>
+                            </div>
+                            <div class="form__group">
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox" checked>
+                                    <span class="checkbox__label">Nouvel article soumis</span>
+                                </label>
+                            </div>
+                            <div class="form__group">
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox">
+                                    <span class="checkbox__label">Rapport hebdomadaire</span>
+                                </label>
+                            </div>
+                            <button class="btn btn--primary btn--sm">Sauvegarder</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion__item">
+                    <button class="accordion__header">
+                        <span>Apparence</span>
+                        <span class="accordion__icon">▼</span>
+                    </button>
+                    <div class="accordion__body">
+                        <form class="form">
+                            <div class="form__group">
+                                <label class="form__label">Thème</label>
+                                <select class="select" style="width:auto;">
+                                    <option value="default">Défaut (Indigo)</option>
+                                    <option value="warm">Warm (Orange/Corail)</option>
+                                </select>
+                            </div>
+                            <div class="form__group">
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox">
+                                    <span class="checkbox__label">Activer le dark mode</span>
+                                </label>
+                            </div>
+                            <button class="btn btn--primary btn--sm">Appliquer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ======================================== -->
+<!-- MODAL: Delete confirmation                -->
+<!-- ======================================== -->
+<div class="modal-backdrop" id="modal-delete" style="display:none;">
+    <div class="modal" role="dialog" aria-modal="true">
+        <div class="modal__header">
+            <h3 class="modal__title">Confirmer la suppression</h3>
+            <button class="modal__close" aria-label="Fermer" onclick="document.getElementById('modal-delete').style.display='none'">×</button>
+        </div>
+        <div class="modal__body">
+            <p class="text">Êtes-vous sûr de vouloir supprimer cet article ?</p>
+            <p class="text text--sm text--muted">Cette action est irréversible. L'article et tous ses commentaires seront définitivement supprimés.</p>
+        </div>
+        <div class="modal__footer">
+            <button class="btn btn--ghost" onclick="document.getElementById('modal-delete').style.display='none'">Annuler</button>
+            <button class="btn btn--danger" onclick="document.getElementById('modal-delete').style.display='none'">Supprimer définitivement</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dark mode toggle -->
+<button class="theme-toggle" style="position:fixed;bottom:1rem;right:1rem;z-index:9999;" onclick="document.documentElement.classList.toggle('dark')">🌓</button>
+
+</body>
+</html>

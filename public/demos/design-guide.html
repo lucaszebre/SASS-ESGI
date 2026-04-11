@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Guide — CMS Blog/Magazine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .guide-section { border-bottom: 1px solid var(--color-border); padding: 2rem 0; }
+        .guide-section__title { font-family: var(--font-family-heading); font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .guide-subsection { margin-bottom: 1.5rem; }
+        .guide-subsection__title { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; opacity: 0.6; }
+        .guide-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+        .color-swatch { width: 80px; text-align: center; }
+        .color-swatch__preview { width: 80px; height: 80px; border-radius: 0.5rem; border: 1px solid var(--color-border); margin-bottom: 0.25rem; }
+        .color-swatch__label { font-size: 0.75rem; }
+        .theme-toggle { position: fixed; bottom: 1rem; right: 1rem; z-index: 9999; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="heading heading--h1">Design Guide</h1>
+    <p class="text text--lead">Bibliothèque de composants CMS Blog/Magazine — BEM, mobile-first, dark mode</p>
+
+    <!-- ============================================ -->
+    <!-- COLORS                                       -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Couleurs</h2>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Primary (Indigo/Violet)</p>
+            <div class="guide-row">
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#eef2ff"></div><span class="color-swatch__label">50</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#e0e7ff"></div><span class="color-swatch__label">100</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#c7d2fe"></div><span class="color-swatch__label">200</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#a5b4fc"></div><span class="color-swatch__label">300</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#818cf8"></div><span class="color-swatch__label">400</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#6366f1"></div><span class="color-swatch__label">500</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#4f46e5"></div><span class="color-swatch__label">600</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#4338ca"></div><span class="color-swatch__label">700</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#3730a3"></div><span class="color-swatch__label">800</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#312e81"></div><span class="color-swatch__label">900</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#1e1b4b"></div><span class="color-swatch__label">950</span></div>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Semantic</p>
+            <div class="guide-row">
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#22c55e"></div><span class="color-swatch__label">Success</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#f59e0b"></div><span class="color-swatch__label">Warning</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#ef4444"></div><span class="color-swatch__label">Error</span></div>
+                <div class="color-swatch"><div class="color-swatch__preview" style="background:#3b82f6"></div><span class="color-swatch__label">Info</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TYPOGRAPHY                                   -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Typographie</h2>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Titres (.heading)</p>
+            <h1 class="heading heading--h1">Heading H1 — Playfair Display</h1>
+            <h2 class="heading heading--h2">Heading H2 — Playfair Display</h2>
+            <h3 class="heading heading--h3">Heading H3 — Playfair Display</h3>
+            <h4 class="heading heading--h4">Heading H4 — Playfair Display</h4>
+            <h5 class="heading heading--h5">Heading H5 — Playfair Display</h5>
+            <h6 class="heading heading--h6">Heading H6 — Playfair Display</h6>
+            <h3 class="heading heading--h3 heading--light">Light weight heading</h3>
+            <h3 class="heading heading--h3 heading--muted">Muted heading</h3>
+            <h3 class="heading heading--h3 heading--center">Centered heading</h3>
+            <h3 class="heading heading--h3 heading--uppercase">Uppercase heading</h3>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Texte courant (.text)</p>
+            <p class="text">Texte courant par défaut — Inter, 1rem, line-height 1.5. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="text text--sm">Texte small — 0.875rem</p>
+            <p class="text text--lg">Texte large — 1.125rem</p>
+            <p class="text text--muted">Texte muted — couleur atténuée</p>
+            <p class="text text--italic">Texte italic</p>
+            <p class="text text--center">Texte centré</p>
+            <p class="text text--lead">Texte lead — introduction d'article, plus grand et aéré. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Liens (.link)</p>
+            <p class="text">Ceci est un <a href="#" class="link">lien classique</a> dans du texte.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BUTTONS                                      -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Boutons (.btn)</h2>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Variantes</p>
+            <div class="guide-row">
+                <button class="btn btn--primary">Primary</button>
+                <button class="btn btn--secondary">Secondary</button>
+                <button class="btn btn--ghost">Ghost</button>
+                <button class="btn btn--danger">Danger</button>
+                <button class="btn btn--primary" disabled>Disabled</button>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Tailles</p>
+            <div class="guide-row" style="align-items:center;">
+                <button class="btn btn--primary btn--sm">Small</button>
+                <button class="btn btn--primary">Default</button>
+                <button class="btn btn--primary btn--lg">Large</button>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Plein largeur</p>
+            <button class="btn btn--primary btn--full">Bouton pleine largeur</button>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Bouton avec icône</p>
+            <div class="guide-row">
+                <button class="btn btn--primary">+ Ajouter</button>
+                <button class="btn btn--secondary">✕ Annuler</button>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Groupe de boutons (.btn-group)</p>
+            <div class="btn-group">
+                <button class="btn btn--secondary">Précédent</button>
+                <button class="btn btn--primary">Suivant</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FORMS                                        -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Formulaires (.form)</h2>
+
+        <form class="form" style="max-width:480px;">
+            <div class="form__group">
+                <label class="form__label" for="name">Nom complet</label>
+                <input class="input" type="text" id="name" placeholder="Jean Dupont">
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="email">Email</label>
+                <input class="input input--error" type="email" id="email" placeholder="jean@example.com" value="invalid-email">
+                <span class="form__error">Veuillez entrer un email valide.</span>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="valid">Email valide</label>
+                <input class="input input--success" type="email" id="valid" value="jean@example.com">
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="bio">Biographie</label>
+                <textarea class="textarea" id="bio" placeholder="Parlez-nous de vous..."></textarea>
+                <span class="form__hint">Maximum 500 caractères.</span>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="category">Catégorie</label>
+                <select class="select" id="category">
+                    <option value="">Choisir une catégorie</option>
+                    <option value="tech">Technologie</option>
+                    <option value="design">Design</option>
+                    <option value="dev">Développement</option>
+                </select>
+            </div>
+
+            <div class="form__group">
+                <label class="form__row">
+                    <input class="checkbox__input" type="checkbox">
+                    <span class="checkbox__label">J'accepte les conditions d'utilisation</span>
+                </label>
+            </div>
+
+            <div class="form__group">
+                <p class="form__label">Fréquence newsletter</p>
+                <label class="radio">
+                    <input class="radio__input" type="radio" name="freq" value="daily">
+                    <span class="radio__label">Quotidien</span>
+                </label>
+                <label class="radio">
+                    <input class="radio__input" type="radio" name="freq" value="weekly">
+                    <span class="radio__label">Hebdomadaire</span>
+                </label>
+                <label class="radio">
+                    <input class="radio__input" type="radio" name="freq" value="monthly">
+                    <span class="radio__label">Mensuel</span>
+                </label>
+            </div>
+
+            <div class="form__group">
+                <label class="form__label" for="small">Input small</label>
+                <input class="input input--sm" type="text" id="small" placeholder="Petit input">
+            </div>
+
+            <button class="btn btn--primary" type="submit">Soumettre</button>
+        </form>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CARDS                                        -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Cards (.card)</h2>
+
+        <div class="guide-row" style="align-items:flex-start;">
+            <div class="card" style="max-width:320px;">
+                <img class="card__image" src="https://placehold.co/320x200/e0e7ff/4338ca?text=Article" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--primary">Technologie</span>
+                    <h3 class="card__title">Les tendances tech en 2026</h3>
+                    <p class="card__text">Découvrez les innovations qui transforment le paysage technologique cette année.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">12 Jan 2026</span>
+                    <a href="#" class="link">Lire →</a>
+                </div>
+            </div>
+
+            <div class="card card--horizontal" style="max-width:480px;">
+                <img class="card__image" src="https://placehold.co/200x150/e0e7ff/4338ca?text=Photo" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--secondary">Design</span>
+                    <h3 class="card__title">Card horizontale</h3>
+                    <p class="card__text">Idéale pour les listes d'articles et les sidebars.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-subsection" style="margin-top:1rem;">
+            <p class="guide-subsection__title">Card featured</p>
+            <div class="card card--featured" style="max-width:600px;">
+                <img class="card__image" src="https://placehold.co/600x300/c7d2fe/1e1b4b?text=Featured+Article" alt="Featured">
+                <div class="card__body">
+                    <span class="badge badge--primary">À la une</span>
+                    <h3 class="card__title">Article mis en avant</h3>
+                    <p class="card__text">Cet article est mis en avant sur la page d'accueil du magazine.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Par Marie Dupont — 10 Jan 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BADGES                                       -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Badges (.badge)</h2>
+        <div class="guide-row">
+            <span class="badge badge--primary">Primary</span>
+            <span class="badge badge--secondary">Secondary</span>
+            <span class="badge badge--success">Success</span>
+            <span class="badge badge--warning">Warning</span>
+            <span class="badge badge--danger">Danger</span>
+            <span class="badge badge--info">Info</span>
+        </div>
+        <div class="guide-row" style="margin-top:0.5rem;">
+            <span class="badge badge--primary badge--pill">Pill Primary</span>
+            <span class="badge badge--success badge--pill">Pill Success</span>
+            <span class="badge badge--danger badge--pill">Pill Danger</span>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ALERTS                                       -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Alertes (.alert)</h2>
+
+        <div class="alert alert--success" role="alert">
+            <strong>Succès !</strong> Votre article a été publié avec succès.
+            <button class="alert__close" aria-label="Fermer">×</button>
+        </div>
+        <div class="alert alert--warning" role="alert">
+            <strong>Attention !</strong> Vous avez des modifications non sauvegardées.
+            <button class="alert__close" aria-label="Fermer">×</button>
+        </div>
+        <div class="alert alert--danger" role="alert">
+            <strong>Erreur !</strong> Impossible de supprimer cet article.
+            <button class="alert__close" aria-label="Fermer">×</button>
+        </div>
+        <div class="alert alert--info" role="alert">
+            <strong>Info :</strong> Une nouvelle version est disponible.
+            <button class="alert__close" aria-label="Fermer">×</button>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BANNER                                       -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Bannière (.banner)</h2>
+        <div class="banner" style="position:relative;overflow:hidden;border-radius:0.5rem;">
+            <img class="banner__image" src="https://placehold.co/1200x400/4338ca/ffffff?text=Blog+Magazine" alt="Banner">
+            <div class="banner__overlay">
+                <h2 class="banner__title">Bienvenue sur le Magazine</h2>
+                <p class="banner__subtitle">Votre source d'articles tech, design et développement</p>
+                <a href="#" class="btn btn--primary banner__cta">Découvrir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- NAVBAR                                       -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Navigation (.navbar)</h2>
+        <nav class="navbar">
+            <a href="#" class="navbar__brand">Magazine</a>
+            <button class="navbar__toggle" aria-label="Menu">☰</button>
+            <ul class="navbar__menu">
+                <li class="navbar__item"><a href="#" class="navbar__link navbar__link--active">Accueil</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Articles</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Catégories</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">À propos</a></li>
+                <li class="navbar__item"><a href="#" class="navbar__link">Contact</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BREADCRUMB                                   -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Breadcrumb (.breadcrumb)</h2>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="#" class="breadcrumb__link">Accueil</a></li>
+                <li class="breadcrumb__item"><a href="#" class="breadcrumb__link">Articles</a></li>
+                <li class="breadcrumb__item"><a href="#" class="breadcrumb__link">Technologie</a></li>
+                <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">Les tendances tech 2026</li>
+            </ol>
+        </nav>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PAGINATION                                   -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Pagination (.pagination)</h2>
+        <nav class="pagination" aria-label="Pagination">
+            <a href="#" class="pagination__link pagination__link--disabled">← Précédent</a>
+            <a href="#" class="pagination__link pagination__link--active">1</a>
+            <a href="#" class="pagination__link">2</a>
+            <a href="#" class="pagination__link">3</a>
+            <span class="pagination__ellipsis">…</span>
+            <a href="#" class="pagination__link">12</a>
+            <a href="#" class="pagination__link">Suivant →</a>
+        </nav>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ACCORDION                                    -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Accordéon (.accordion)</h2>
+        <div class="accordion" style="max-width:600px;">
+            <div class="accordion__item accordion__item--open">
+                <button class="accordion__header">
+                    <span>Qu'est-ce que le BEM ?</span>
+                    <span class="accordion__icon">▼</span>
+                </button>
+                <div class="accordion__body">
+                    <p class="text">BEM (Block Element Modifier) est une méthodologie de nommage CSS qui aide à créer des composants réutilisables et maintenables.</p>
+                </div>
+            </div>
+            <div class="accordion__item">
+                <button class="accordion__header">
+                    <span>Pourquoi mobile-first ?</span>
+                    <span class="accordion__icon">▼</span>
+                </button>
+                <div class="accordion__body">
+                    <p class="text">L'approche mobile-first consiste à écrire les styles pour mobile en premier, puis à ajouter des media queries pour les écrans plus larges.</p>
+                </div>
+            </div>
+            <div class="accordion__item">
+                <button class="accordion__header">
+                    <span>Comment activer le dark mode ?</span>
+                    <span class="accordion__icon">▼</span>
+                </button>
+                <div class="accordion__body">
+                    <p class="text">Le dark mode s'active via la classe <code>.dark</code> sur l'élément <code>&lt;html&gt;</code> ou automatiquement via les préférences système.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MODAL                                        -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Modale (.modal)</h2>
+        <button class="btn btn--primary" onclick="document.querySelector('.modal-backdrop').style.display='flex'">Ouvrir la modale</button>
+
+        <div class="modal-backdrop" style="display:none;">
+            <div class="modal" role="dialog" aria-modal="true">
+                <div class="modal__header">
+                    <h3 class="modal__title">Confirmer la suppression</h3>
+                    <button class="modal__close" aria-label="Fermer">×</button>
+                </div>
+                <div class="modal__body">
+                    <p class="text">Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.</p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn btn--ghost" onclick="this.closest('.modal-backdrop').style.display='none'">Annuler</button>
+                    <button class="btn btn--danger" onclick="this.closest('.modal-backdrop').style.display='none'">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TABLE                                        -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Tableau (.table)</h2>
+        <div class="table table--responsive">
+            <table class="table">
+                <thead class="table__head">
+                    <tr>
+                        <th class="table__cell table__cell--header">Titre</th>
+                        <th class="table__cell table__cell--header">Auteur</th>
+                        <th class="table__cell table__cell--header">Catégorie</th>
+                        <th class="table__cell table__cell--header">Date</th>
+                        <th class="table__cell table__cell--header">Statut</th>
+                        <th class="table__cell table__cell--header">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table__row">
+                        <td class="table__cell">Les tendances tech 2026</td>
+                        <td class="table__cell">Marie Dupont</td>
+                        <td class="table__cell"><span class="badge badge--primary badge--pill">Tech</span></td>
+                        <td class="table__cell">12 Jan 2026</td>
+                        <td class="table__cell"><span class="badge badge--success">Publié</span></td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell">Design system en 2026</td>
+                        <td class="table__cell">Lucas Zebre</td>
+                        <td class="table__cell"><span class="badge badge--secondary badge--pill">Design</span></td>
+                        <td class="table__cell">10 Jan 2026</td>
+                        <td class="table__cell"><span class="badge badge--warning">Brouillon</span></td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__cell">SCSS avancé : mixins et fonctions</td>
+                        <td class="table__cell">Paul Martin</td>
+                        <td class="table__cell"><span class="badge badge--info badge--pill">Dev</span></td>
+                        <td class="table__cell">8 Jan 2026</td>
+                        <td class="table__cell"><span class="badge badge--success">Publié</span></td>
+                        <td class="table__cell">
+                            <button class="btn btn--ghost btn--sm">Éditer</button>
+                            <button class="btn btn--danger btn--sm">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SIDEBAR                                      -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Sidebar admin (.sidebar)</h2>
+        <div class="sidebar" style="max-width:260px;">
+            <div class="sidebar__header">
+                <span class="sidebar__brand">Admin</span>
+            </div>
+            <nav class="sidebar__nav">
+                <a href="#" class="sidebar__link sidebar__link--active">Dashboard</a>
+                <a href="#" class="sidebar__link">Articles</a>
+                <a href="#" class="sidebar__link">Catégories</a>
+                <a href="#" class="sidebar__link">Utilisateurs</a>
+                <a href="#" class="sidebar__link">Commentaires</a>
+                <a href="#" class="sidebar__link">Paramètres</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- LAYOUT: CONTAINER, GRID, SECTION             -->
+    <!-- ============================================ -->
+    <section class="guide-section">
+        <h2 class="guide-section__title">Layout</h2>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Container</p>
+            <div class="container container--narrow" style="background:var(--color-surface);padding:1rem;border-radius:0.5rem;">
+                <p class="text text--sm text--center">container--narrow (768px)</p>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Grid</p>
+            <div class="grid grid--3col" style="gap:1rem;">
+                <div style="background:var(--color-surface);padding:1rem;border-radius:0.5rem;text-align:center;">Col 1</div>
+                <div style="background:var(--color-surface);padding:1rem;border-radius:0.5rem;text-align:center;">Col 2</div>
+                <div style="background:var(--color-surface);padding:1rem;border-radius:0.5rem;text-align:center;">Col 3</div>
+            </div>
+        </div>
+
+        <div class="guide-subsection">
+            <p class="guide-subsection__title">Section</p>
+            <div class="section section--alt" style="border-radius:0.5rem;">
+                <p class="text text--center">Section avec fond alterné</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Dark mode toggle -->
+<button class="theme-toggle btn btn--secondary btn--sm" onclick="document.documentElement.classList.toggle('dark')">🌓 Dark Mode</button>
+
+</body>
+</html>

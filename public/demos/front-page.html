@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine — Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- NAVBAR                                       -->
+<!-- ============================================ -->
+<nav class="navbar">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+        <a href="#" class="navbar__brand">Magazine</a>
+        <button class="navbar__toggle" aria-label="Menu">☰</button>
+        <ul class="navbar__menu">
+            <li class="navbar__item"><a href="#" class="navbar__link navbar__link--active">Accueil</a></li>
+            <li class="navbar__item"><a href="#" class="navbar__link">Articles</a></li>
+            <li class="navbar__item"><a href="#" class="navbar__link">Catégories</a></li>
+            <li class="navbar__item"><a href="#" class="navbar__link">À propos</a></li>
+            <li class="navbar__item"><a href="#" class="navbar__link">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============================================ -->
+<!-- HERO BANNER                                  -->
+<!-- ============================================ -->
+<section class="section">
+    <div class="container">
+        <div class="banner">
+            <img class="banner__image" src="https://placehold.co/1200x500/4338ca/ffffff?text=Magazine+Tech+2026" alt="Hero">
+            <div class="banner__overlay">
+                <span class="badge badge--primary badge--pill">À la une</span>
+                <h1 class="banner__title">Les tendances technologiques qui façonnent 2026</h1>
+                <p class="banner__subtitle">IA, design systems, edge computing — tour d'horizon des innovations à suivre.</p>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <a href="#" class="btn btn--primary banner__cta">Lire l'article</a>
+                    <a href="#" class="btn btn--secondary banner__cta">Tous les articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ARTICLES GRID                                -->
+<!-- ============================================ -->
+<section class="section section--alt">
+    <div class="container">
+        <h2 class="heading heading--h2">Derniers articles</h2>
+
+        <div class="grid grid--3col" style="margin-bottom:2rem;">
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/e0e7ff/4338ca?text=Tech" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--primary">Technologie</span>
+                    <h3 class="card__title"><a href="#" class="link">L'IA générative transforme le développement web</a></h3>
+                    <p class="card__text">Comment les outils d'IA changent la façon dont nous concevons et développons des sites.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Marie Dupont — 12 Jan 2026</span>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/fef3c7/92400e?text=Design" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--secondary">Design</span>
+                    <h3 class="card__title"><a href="#" class="link">Design tokens : le futur des design systems</a></h3>
+                    <p class="card__text">Les design tokens unifient le langage visuel entre designers et développeurs.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Lucas Zebre — 10 Jan 2026</span>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/dcfce7/166534?text=Dev" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--info">Développement</span>
+                    <h3 class="card__title"><a href="#" class="link">SCSS avancé : mixins et fonctions</a></h3>
+                    <p class="card__text">Maîtrisez les mixins et fonctions SCSS pour un code plus maintenable.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Paul Martin — 8 Jan 2026</span>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/fce7f3/9d174d?text=CSS" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--danger">CSS</span>
+                    <h3 class="card__title"><a href="#" class="link">CSS Container Queries en pratique</a></h3>
+                    <p class="card__text">Les container queries changent la donne pour les composants responsifs.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Sophie Bernard — 6 Jan 2026</span>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/e0e7ff/4338ca?text=Perf" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--primary">Performance</span>
+                    <h3 class="card__title"><a href="#" class="link">Optimiser les Core Web Vitals en 2026</a></h3>
+                    <p class="card__text">Les bonnes pratiques pour un site rapide et performant.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Marie Dupont — 4 Jan 2026</span>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="card__image" src="https://placehold.co/400x250/fef3c7/92400e?text=Access" alt="Article">
+                <div class="card__body">
+                    <span class="badge badge--success">Accessibilité</span>
+                    <h3 class="card__title"><a href="#" class="link">Accessibilité web : les bases indispensables</a></h3>
+                    <p class="card__text">Rendre le web accessible à tous, un impératif moral et légal.</p>
+                </div>
+                <div class="card__footer">
+                    <span class="text text--sm text--muted">Paul Martin — 2 Jan 2026</span>
+                </div>
+            </article>
+        </div>
+
+        <nav class="pagination" aria-label="Pagination" style="justify-content:center;">
+            <a href="#" class="pagination__link pagination__link--disabled">← Précédent</a>
+            <a href="#" class="pagination__link pagination__link--active">1</a>
+            <a href="#" class="pagination__link">2</a>
+            <a href="#" class="pagination__link">3</a>
+            <span class="pagination__ellipsis">…</span>
+            <a href="#" class="pagination__link">8</a>
+            <a href="#" class="pagination__link">Suivant →</a>
+        </nav>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER                                       -->
+<!-- ============================================ -->
+<footer class="section" style="border-top:1px solid var(--color-border);">
+    <div class="container">
+        <div class="grid grid--3col" style="gap:2rem;">
+            <div>
+                <h4 class="heading heading--h5">Magazine</h4>
+                <p class="text text--sm text--muted">Votre source d'articles tech, design et développement web.</p>
+            </div>
+            <div>
+                <h4 class="heading heading--h5">Liens rapides</h4>
+                <ul style="display:flex;flex-direction:column;gap:0.5rem;">
+                    <li><a href="#" class="link text--sm">Accueil</a></li>
+                    <li><a href="#" class="link text--sm">Articles</a></li>
+                    <li><a href="#" class="link text--sm">Catégories</a></li>
+                    <li><a href="#" class="link text--sm">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="heading heading--h5">Newsletter</h4>
+                <form class="form">
+                    <div class="form__group">
+                        <input class="input" type="email" placeholder="votre@email.com">
+                    </div>
+                    <button class="btn btn--primary btn--full btn--sm">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <p class="text text--sm text--muted text--center" style="margin-top:2rem;">© 2026 Magazine. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Dark mode toggle -->
+<button class="theme-toggle" style="position:fixed;bottom:1rem;right:1rem;z-index:9999;" onclick="document.documentElement.classList.toggle('dark')">🌓</button>
+
+</body>
+</html>

@@ -177,12 +177,14 @@ Imports ordonnés de tous les partials.
 
 ---
 
-## Phase 10 — Pages de démo (`public/demos/`)
+## Phase 10 — Pages de démo (`public/demos/`) ✅
 
-1. `design-guide.html` — catalogue de tous les composants
-2. `front-page.html` — page d'accueil magazine
-3. `article.html` — page article complète
-4. `admin-dashboard.html` — tableau de bord admin
+1. `design-guide.html` — catalogue de tous les composants ✅
+2. `front-page.html` — page d'accueil magazine ✅
+3. `article.html` — page article complète ✅
+4. `admin-dashboard.html` — tableau de bord admin ✅
+
+> **Note** : Les pages HTML sont créées en avance avec tout le markup BEM. Elles serviront de cible visuelle au fur et à mesure que les composants SCSS sont ajoutés. Les styles apparaîtront progressivement.
 
 ---
 
@@ -233,17 +235,17 @@ public/scss/
 
 ## Ordre d'exécution
 
-| # | Tâche | Fichiers |
-|---|---|---|
-| 1 | Fondations | `variables`, `functions`, `mixins` |
-| 2 | Base | `reset`, `typography` (fix) |
-| 3 | Layout | `container`, `grid`, `section` |
-| 4 | Composants base | `buttons`, `forms` (fix), `card`, `badge` |
-| 5 | Feedback UI | `alert`, `banner` |
-| 6 | Navigation | `navbar`, `breadcrumb`, `pagination`, `accordion` |
-| 7 | Avancé | `modal`, `table`, `sidebar`, `article`, `comment` |
-| 8 | Thème warm | `_theme-warm.scss` |
-| 9 | JS | `modal.js`, `accordion.js`, `navbar.js`, `alert.js` |
-| 10 | main.scss | Imports + compilation |
-| 11 | Démos HTML | 4 pages de démo |
-| 12 | Tooling | `package.json` |
+| # | Tâche | Fichiers | Statut |
+|---|---|---|---|
+| 1 | Fondations | `variables`, `functions`, `mixins` | ✅ |
+| 2 | Base | `reset`, `typography` (fix) | ✅ |
+| 3 | Layout | `container`, `grid`, `section` | |
+| 4 | Composants base | `buttons`, `forms` (fix), `card`, `badge` | |
+| 5 | Feedback UI | `alert`, `banner` | |
+| 6 | Navigation | `navbar`, `breadcrumb`, `pagination`, `accordion` | |
+| 7 | Avancé | `modal`, `table`, `sidebar`, `article`, `comment` | |
+| 8 | Thème warm | `_theme-warm.scss` | |
+| 9 | JS | `modal.js`, `accordion.js`, `navbar.js`, `alert.js` | |
+| 10 | main.scss | Imports + compilation | |
+| 11 | Démos HTML | 4 pages de démo | ✅ |
+| 12 | Tooling | `package.json` | ✅ |
