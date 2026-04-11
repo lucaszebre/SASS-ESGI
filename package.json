@@ -1,0 +1,12 @@
+{
+  "name": "sass-esgi",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile:sass": "sass public/scss/main.scss public/css/main.css --style=compressed --no-source-map",
+    "watch:sass": "sass public/scss/main.scss public/css/main.css --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
