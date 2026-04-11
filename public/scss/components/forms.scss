@@ -112,7 +112,7 @@
     &__label {
         font-size: $font-size-sm;
         color: $colors-text;
-        @include dark { color-text-dark; }
+        @include dark { color: $colors-text-dark; }
     }
 
 
@@ -152,9 +152,9 @@
 
 
         &--danger {
-            background-color: rgba($color-error;
+            background-color: $color-error;
             color: #fff;
-            &:hover:not(:disabled) {background-color: darken($color:-error, 10%);}
+            &:hover:not(:disabled) {background-color: $color-error-dark;}
         }
 
 

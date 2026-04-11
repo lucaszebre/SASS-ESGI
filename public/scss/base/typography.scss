@@ -62,7 +62,7 @@
     &:hover { color: $colors-primary-dark;}
 
     @include dark {
-        color: lighten($colors-primary, 20%);
+        color: $colors-primary-300;
         &:hover {}
     }
 }
