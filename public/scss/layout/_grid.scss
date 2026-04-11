@@ -1,0 +1,24 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+.grid {
+    display: grid;
+    gap: $spacing-6;
+
+    &--2col {
+        grid-template-columns: 1fr;
+        @include respond-to(md) { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    &--3col {
+        grid-template-columns: 1fr;
+        @include respond-to(sm) { grid-template-columns: repeat(2, 1fr); }
+        @include respond-to(lg) { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    &--4col {
+        grid-template-columns: 1fr;
+        @include respond-to(sm) { grid-template-columns: repeat(2, 1fr); }
+        @include respond-to(lg) { grid-template-columns: repeat(4, 1fr); }
+    }
+}

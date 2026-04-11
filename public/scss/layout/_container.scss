@@ -1,0 +1,13 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+.container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-inline: auto;
+    padding-inline: $container-padding;
+
+    &--narrow { max-width: $container-narrow; }
+    &--wide { max-width: $container-wide; }
+    &--fluid { max-width: 100%; }
+}

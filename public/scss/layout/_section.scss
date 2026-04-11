@@ -1,0 +1,11 @@
+@use '../abstracts/variables.scss' as *;
+@use '../abstracts/mixins.scss' as *;
+
+.section {
+    padding-block: $spacing-16;
+
+    &--alt {
+        background-color: $colors-surface;
+        @include dark { background-color: $colors-surface-dark; }
+    }
+}
