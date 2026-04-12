@@ -1,37 +1,37 @@
 <?php
-$pageTitle = 'Réinitialiser le mot de passe';
-include __DIR__ . '/layouts/header.php';
+$error = $error ?? '';
+$token = $token ?? '';
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+     <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1>Reset Password</h1>
 
-<section class="section">
-    <div class="container container--narrow">
-        <h1 class="heading heading--h2">Réinitialiser le mot de passe</h1>
+    <?php if ($error !== ''): ?>
+        <p style="color:red"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
+    <?php endif; ?>
 
-        <?php if ($error !== ''): ?>
-            <div class="alert alert--danger" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
-        <?php endif; ?>
-
-        <form class="form" method="POST" action="/reset-password">
-            <?= \App\Services\CsrfService::field() ?>
-            <input type="hidden" name="token" value="<?= htmlspecialchars($token, ENT_QUOTES, 'UTF-8') ?>">
-
-            <div class="form__group">
-                <label class="form__label" for="password">Nouveau mot de passe</label>
-                <input class="input" id="password" name="password" type="password" placeholder="Nouveau mot de passe" required minlength="8">
-            </div>
-
-            <div class="form__group">
-                <label class="form__label" for="password_confirm">Confirmer le nouveau mot de passe</label>
-                <input class="input" id="password_confirm" name="password_confirm" type="password" placeholder="Confirmer le mot de passe" required minlength="8">
-            </div>
-
-            <button class="btn btn--primary btn--full" type="submit">Réinitialiser</button>
-        </form>
-
-        <div style="margin-top:1.5rem;">
-            <a href="/login" class="link">&larr; Retour à la connexion</a>
+    <form method="POST" action="/reset-password">
+        <?= \App\Services\CsrfService::field() ?>
+        <input type="hidden" name="token" value="<?= htmlspecialchars($token, ENT_QUOTES, 'UTF-8') ?>">
+        <div>
+            <label for="password">New password</label>
+            <input id="password" name="password" type="password" placeholder="New password" required minlength="8">
         </div>
-    </div>
-</section>
-
-<?php include __DIR__ . '/layouts/footer.php'; ?>
+        <div>
+            <label for="password_confirm">Confirm new password</label>
+            <input id="password_confirm" name="password_confirm" type="password" placeholder="Confirm password" required minlength="8">
+        </div>
+        <div>
+            <button type="submit">Reset password</button>
+        </div>
+    </form>
+    <a href="/login">Back to login</a>
+</body>
+</html>
