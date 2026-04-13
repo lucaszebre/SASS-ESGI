@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php-apache
+    container_name: sass-esgi-php-apache
     ports:
       - "8080:80"
     volumes:
@@ -22,7 +22,7 @@ services:
 
   db:
     image: mariadb:11.3
-    container_name: mariadb-db
+    container_name: sass-esgi-mariadb-db
     restart: unless-stopped
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
@@ -37,7 +37,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5
-    container_name: phpmyadmin
+    container_name: sass-esgi-phpmyadmin
     restart: unless-stopped
     environment:
       PMA_HOST: db
@@ -52,7 +52,7 @@ services:
 
   mailpit:
     image: axllent/mailpit:latest
-    container_name: mailpit
+    container_name: sass-esgi-mailpit
     restart: unless-stopped
     ports:
       - "8025:8025"

@@ -5,9 +5,9 @@
     @include button-base;
 
     &--primary {
-        background-color: $colors-primary;
+        background-color: var(--color-primary);
         color: #fff;
-        &:hover:not(:disabled) { background-color: $colors-primary-dark; }
+        &:hover:not(:disabled) { background-color: var(--color-primary-dark); }
         @include dark {
             background-color: $colors-primary-400;
             &:hover:not(:disabled) { background-color: $colors-primary-300; }
@@ -16,10 +16,10 @@
 
     &--secondary {
         background-color: transparent;
-        border-color: $colors-primary;
-        color: $colors-primary;
+        border-color: var(--color-primary);
+        color: var(--color-primary);
         &:hover:not(:disabled) {
-            background-color: $colors-primary;
+            background-color: var(--color-primary);
             color: #fff;
         }
         @include dark {

@@ -32,8 +32,8 @@ body {
     font-family: $font-family-base;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    color: $colors-text;
-    background-color: $colors-bg;
+    color: var(--color-text);
+    background-color: var(--color-bg);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -64,6 +64,35 @@ body {
     --transition-base: #{$transition-base};
     --font-family-base: #{$font-family-base};
     --font-family-heading: #{$font-family-heading};
+}
+
+.dark {
+    --color-primary: #{$colors-primary-400};
+    --color-primary-dark: #{$colors-primary-300};
+    --color-bg: #{$colors-bg-dark};
+    --color-surface: #{$colors-surface-dark};
+    --color-border: #{$colors-border-dark};
+    --color-text: #{$colors-text-dark};
+    --color-text-muted: #{$colors-text-muted-dark};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+        --color-primary: #{$colors-primary-400};
+        --color-primary-dark: #{$colors-primary-300};
+        --color-bg: #{$colors-bg-dark};
+        --color-surface: #{$colors-surface-dark};
+        --color-border: #{$colors-border-dark};
+        --color-text: #{$colors-text-dark};
+        --color-text-muted: #{$colors-text-muted-dark};
+    }
+}
+
+.theme-editorial {
+    --color-primary: #0f766e;
+    --color-primary-dark: #115e59;
+    --color-surface: #f4f7f2;
+    --color-border: #d8e0d2;
 }
 
 // ============================================

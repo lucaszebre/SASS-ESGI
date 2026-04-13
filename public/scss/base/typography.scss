@@ -42,6 +42,7 @@
     &--lg {font-size: $font-size-lg;}
     &--muted {color:$colors-text-muted;}
     &--italic {font-style: italic;}
+    &--center,
     &--centre {text-align: center;}
     &--lead {
         font-size: $font-size-lg;
