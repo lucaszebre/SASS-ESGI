@@ -1,0 +1,45 @@
+// COMPONENT : BREADCRUMB
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: $spacing-sm 0;
+  font-size: $font-size-sm;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child)::after {
+      content: '/';
+      margin: 0 $spacing-xs;
+      color: $color-gray-400;
+    }
+  }
+
+  &--chevron &__item:not(:last-child)::after { content: '›'; font-size: 1.1em; }
+  &--arrow   &__item:not(:last-child)::after { content: '→'; }
+  &--dot     &__item:not(:last-child)::after { content: '·'; font-size: 1.2em; }
+
+  &__link {
+    color: $color-primary;
+    text-decoration: none;
+    transition: color $transition-speed ease;
+    &:hover { color: darken($color-primary, 12%); text-decoration: underline; }
+  }
+
+  &__current {
+    color: $color-gray-500;
+    font-weight: $font-weight-medium;
+    cursor: default;
+  }
+
+  &--pill {
+    background-color: $color-gray-100;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-full;
+    display: inline-flex;
+  }
+}

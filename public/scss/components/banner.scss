@@ -1,0 +1,92 @@
+// COMPONENT : BANNER
+.banner {
+  width: 100%;
+  padding: $spacing-sm $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex: 1;
+  }
+
+  &__icon { font-size: 1.1rem; flex-shrink: 0; }
+
+  &__text {
+    margin: 0;
+    line-height: 1.4;
+
+    a {
+      color: inherit;
+      font-weight: $font-weight-bold;
+      text-decoration: underline;
+      &:hover { opacity: 0.85; }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background $transition-speed ease;
+
+    &:hover { background: rgba($color-white, 0.15); }
+
+    &--solid {
+      background: rgba($color-white, 0.2);
+      border-color: transparent;
+      &:hover { background: rgba($color-white, 0.35); }
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    font-size: 1rem;
+    padding: 0;
+    flex-shrink: 0;
+    transition: opacity $transition-speed ease;
+    &:hover { opacity: 1; }
+  }
+
+  &--info    { background-color: $color-info;    color: $color-white; }
+  &--success { background-color: $color-success; color: $color-white; }
+  &--warning { background-color: $color-warning; color: $color-white; }
+  &--error   { background-color: $color-error;   color: $color-white; }
+  &--neutral { background-color: $color-gray-100; color: $color-gray-800; border-bottom: 1px solid $color-gray-200; }
+  &--dark    { background-color: $color-gray-900; color: $color-white; }
+
+  &--sticky   { position: sticky; top: 0; z-index: $z-index-banner; }
+  &--centered { justify-content: center; text-align: center; }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+
+    &__actions { width: 100%; }
+  }
+}

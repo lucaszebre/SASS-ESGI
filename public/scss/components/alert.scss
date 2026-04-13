@@ -1,0 +1,97 @@
+// COMPONENT : ALERT
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius;
+  border-left: 4px solid transparent;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  margin-bottom: $spacing-md;
+
+  &__icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    margin-top: 1px;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: 2px;
+    font-size: $font-size-base;
+  }
+
+  &__message {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.6;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: opacity $transition-speed ease;
+
+    &:hover { opacity: 1; }
+  }
+
+  &--success {
+    background-color: lighten($color-success, 45%);
+    border-color: $color-success;
+    color: darken($color-success, 15%);
+  }
+
+  &--error {
+    background-color: lighten($color-error, 38%);
+    border-color: $color-error;
+    color: darken($color-error, 10%);
+  }
+
+  &--warning {
+    background-color: lighten($color-warning, 38%);
+    border-color: $color-warning;
+    color: darken($color-warning, 20%);
+  }
+
+  &--info {
+    background-color: lighten($color-info, 38%);
+    border-color: $color-info;
+    color: darken($color-info, 15%);
+  }
+
+  &--sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
+
+  &--lg {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-base;
+  }
+
+  &--filled {
+    &.alert--success { background-color: $color-success; color: $color-white; border-color: $color-success; }
+    &.alert--error   { background-color: $color-error;   color: $color-white; border-color: $color-error; }
+    &.alert--warning { background-color: $color-warning; color: $color-white; border-color: $color-warning; }
+    &.alert--info    { background-color: $color-info;    color: $color-white; border-color: $color-info; }
+  }
+
+  &--dismissible {
+    transition: opacity $transition-speed ease, transform $transition-speed ease;
+    &.is-hidden {
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
+    }
+  }
+}

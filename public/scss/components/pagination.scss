@@ -1,0 +1,63 @@
+// COMPONENT : PAGINATION
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: $spacing-lg 0;
+  padding: 0;
+  gap: $spacing-xs;
+
+  &__item { display: flex; }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 $spacing-xs;
+    border-radius: $border-radius;
+    border: 1px solid $color-gray-200;
+    background-color: $color-white;
+    color: $color-gray-700;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background $transition-speed ease, color $transition-speed ease, border-color $transition-speed ease;
+
+    &:hover { background-color: $color-gray-100; border-color: $color-gray-300; color: $color-primary; }
+
+    &.is-active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+      pointer-events: none;
+    }
+
+    &.is-disabled { opacity: 0.4; pointer-events: none; }
+  }
+
+  &__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+  }
+
+  &--simple .pagination__link {
+    border-color: transparent;
+    background: transparent;
+    &:hover { background-color: $color-gray-100; }
+    &.is-active { background-color: $color-primary; color: $color-white; }
+  }
+
+  &--rounded .pagination__link { border-radius: $border-radius-full; }
+
+  &--sm .pagination__link { min-width: 28px; height: 28px; font-size: $font-size-xs; }
+  &--lg .pagination__link { min-width: 44px; height: 44px; font-size: $font-size-base; }
+}
