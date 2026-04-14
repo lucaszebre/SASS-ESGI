@@ -6,20 +6,27 @@ include __DIR__ . '/layouts/header.php';
 <div class="container">
     <h1 class="heading heading--h1">Design Guide</h1>
     <p class="text text--lead">Bibliothèque de composants CMS Blog/Magazine — BEM, mobile-first, dark mode</p>
-    <div class="guide-row" style="margin-top:1rem;">
-        <button class="btn btn--secondary btn--sm" type="button" data-theme-toggle>Dark mode</button>
-        <button class="btn btn--secondary btn--sm" type="button" data-theme-editorial-toggle>Thème alternatif</button>
-    </div>
+
 
     <!-- Couleurs -->
     <section class="guide-section" style="border-bottom:1px solid var(--color-border);padding:2rem 0;">
         <h2 class="heading heading--h2">Couleurs</h2>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;">
-            <div style="width:80px;text-align:center;"><div style="width:80px;height:80px;border-radius:0.5rem;background:#6366f1;"></div><span class="text text--sm">Primary</span></div>
-            <div style="width:80px;text-align:center;"><div style="width:80px;height:80px;border-radius:0.5rem;background:#22c55e;"></div><span class="text text--sm">Success</span></div>
-            <div style="width:80px;text-align:center;"><div style="width:80px;height:80px;border-radius:0.5rem;background:#f59e0b;"></div><span class="text text--sm">Warning</span></div>
-            <div style="width:80px;text-align:center;"><div style="width:80px;height:80px;border-radius:0.5rem;background:#ef4444;"></div><span class="text text--sm">Error</span></div>
-            <div style="width:80px;text-align:center;"><div style="width:80px;height:80px;border-radius:0.5rem;background:#3b82f6;"></div><span class="text text--sm">Info</span></div>
+            <div style="width:80px;text-align:center;">
+                <div style="width:80px;height:80px;border-radius:0.5rem;background:#6366f1;"></div><span class="text text--sm">Primary</span>
+            </div>
+            <div style="width:80px;text-align:center;">
+                <div style="width:80px;height:80px;border-radius:0.5rem;background:#22c55e;"></div><span class="text text--sm">Success</span>
+            </div>
+            <div style="width:80px;text-align:center;">
+                <div style="width:80px;height:80px;border-radius:0.5rem;background:#f59e0b;"></div><span class="text text--sm">Warning</span>
+            </div>
+            <div style="width:80px;text-align:center;">
+                <div style="width:80px;height:80px;border-radius:0.5rem;background:#ef4444;"></div><span class="text text--sm">Error</span>
+            </div>
+            <div style="width:80px;text-align:center;">
+                <div style="width:80px;height:80px;border-radius:0.5rem;background:#3b82f6;"></div><span class="text text--sm">Info</span>
+            </div>
         </div>
     </section>
 
